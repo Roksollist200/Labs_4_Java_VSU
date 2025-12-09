@@ -5,7 +5,21 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *Клас для считывания CSV-файлов и преобзаовнаие обхектов в список
+ */
+
 public class TableParser {
+    /**
+     *Читает данные из CSV-файла и преобразует их в список объектов Person
+     * @param csvPath путь к CSV-файлу
+     * @return список обхектов Person, которые считываются из файла
+     * @throws Exception Вызво иселбчения если:
+     * 1-> файл не найден;
+     * 2->данные имеют неверный формат
+     *
+     *
+     */
     public List<Person> readPeople(String csvPath) throws Exception {
 
         List<Person> people = new ArrayList<>();
@@ -25,7 +39,7 @@ public class TableParser {
                 String name = nextLine[1];
                 String gender = nextLine[2];
                 String birthDate = nextLine[3];
-                String depName =nextLine[4];
+                String depName = nextLine[4];
                 double salary = Double.parseDouble(nextLine[5]);
 
 

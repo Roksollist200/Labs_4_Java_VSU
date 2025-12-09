@@ -1,29 +1,40 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    TableParser parser = new TableParser();
+        try {
+            List<Person> personList = parser.readPeople("foreign_names.csv");
+            System.out.println("Всего людей прочитано: " + personList.size());
+            System.out.println("\nСписок людей:");
 
-        String dep = "B";
-        Department department = new Department(dep.hashCode(), dep);
-        Department department2 = new Department(dep.hashCode(), dep);
-
-
-
-
-        System.out.println(department);
-        System.out.println(department2);
-
-
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+            int i = 0;
+            for (Person person : personList) {
+                Department dep = person.getDepartment();
+                System.out.print(dep.getId());
+                i++;
+                if (i % 20 == 0) {
+                    System.out.println();
+                } else {
+                    System.out.print(" ");
+                }
+//                System.out.print("ID: " + person.getId() +
+//                        ", Имя: " + person.name() +
+//                        ", Пол: " + person.gender() +
+//                        ", ID подразделения: " + dep.getId() +
+//                        ", Подразделение: " + dep.getName() +
+//                        ", Зарплата: " + person.getSalary() +
+//                        ", Дата рождения: " + person.getBirthDate());
+            }
+        } catch (Exception e) {
+            System.out.println("Произошла ошибка: " + e.getMessage());
+            System.out.println("Проверьте:");
+            System.out.println("1-> Файл foreign_names.csv есть в папке resources");
+            System.out.println("2-> Файл не пустой");
+            System.out.println("3-> Формат файла правильный (разделитель ;)");
         }
     }
+
 }
