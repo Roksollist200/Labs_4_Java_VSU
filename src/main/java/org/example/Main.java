@@ -8,7 +8,8 @@ public class Main {
         try {
             List<Person> personList = parser.readPeople("foreign_names.csv");
             System.out.println("Всего людей прочитано: " + personList.size());
-            System.out.println("\nСписок людей:");
+            //System.out.println("\nСписок людей:");
+            System.out.println("\nСписок id:");
 
             int i = 0;
             for (Person person : personList) {
@@ -21,8 +22,8 @@ public class Main {
                     System.out.print(" ");
                 }
 //                System.out.print("ID: " + person.getId() +
-//                        ", Имя: " + person.name() +
-//                        ", Пол: " + person.gender() +
+//                        ", Имя: " + person.getName() +
+//                        ", Пол: " + person.getGender() +
 //                        ", ID подразделения: " + dep.getId() +
 //                        ", Подразделение: " + dep.getName() +
 //                        ", Зарплата: " + person.getSalary() +

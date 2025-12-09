@@ -51,7 +51,7 @@ public class Person {
      * Возвращает имя человека
      * @return   имя сотрудника типа String
      */
-    public String name(){
+    public String getName(){
         return name;
     }
 
@@ -59,7 +59,7 @@ public class Person {
      *  Возвращает пол сотрудника.
      * @return пол в виде строки
      */
-    public String gender(){
+    public String getGender(){
         return  gender;
     }
 
